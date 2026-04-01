@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:5000'
+const API_BASE =
+  (import.meta.env.VITE_API_BASE as string | undefined) ||
+  (typeof window !== 'undefined' ? window.location.origin : 'https://fyjrhb.transparent.yun')
 
 export type MediaType = 'image' | 'video'
 
